@@ -30,3 +30,39 @@ Files are located in:
 - `html/script.js`
 - `html/PLAN.md`
 - `html/TESTING.md`
+
+## Troubleshooting: ZIP downloads empty from GitHub
+If **Download ZIP** gives you an empty folder, one of these is usually the cause:
+
+1. **Your changes are local only and were not pushed to GitHub yet.**
+   - Check local commits:
+   ```bash
+   git log --oneline -n 5
+   ```
+   - Push your branch:
+   ```bash
+   git push -u origin <branch-name>
+   ```
+
+2. **You downloaded from the wrong branch in GitHub UI.**
+   - In GitHub, use the branch selector (top-left above file list).
+   - Switch to the branch that contains your files, then click **Code → Download ZIP** again.
+
+3. **The repository default branch is still empty.**
+   - If your files are in another branch, either:
+     - open that branch and download ZIP there, or
+     - merge your branch into the default branch (`main`/`master`) and retry.
+
+4. **The commit was never created on GitHub (only in local workspace).**
+   - Verify remote branch and tracking:
+   ```bash
+   git branch -vv
+   git remote -v
+   ```
+
+Quick sanity check from terminal:
+```bash
+git status --short --branch
+git ls-files
+```
+If `git ls-files` lists files locally but GitHub shows empty, it is almost always a branch/push mismatch.
