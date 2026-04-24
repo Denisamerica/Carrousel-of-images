@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Carousel Upload Panel</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel" aria-labelledby="upload-title">
+        <h1 id="upload-title">Carousel Image Upload Panel</h1>
+        <p class="hint">
+          Upload carousel images in <strong>WebP, GIF, PNG, or JPEG</strong> format.
+        </p>
+
+        <label class="file-picker" for="image-input">Choose images</label>
+        <input
+          id="image-input"
+          type="file"
+          accept=".webp,.gif,.png,.jpg,.jpeg,image/webp,image/gif,image/png,image/jpeg"
+          multiple
+        />
+
+        <p class="status" id="status" aria-live="polite">No images uploaded yet.</p>
+
+        <ul class="image-list" id="image-list" aria-label="Uploaded images"></ul>
+      </section>
+
+      <section class="preview" aria-labelledby="preview-title">
+        <h2 id="preview-title">Carousel Preview (9:16)</h2>
+
+        <div class="carousel" id="carousel">
+          <div class="track" id="track"></div>
+          <button class="nav prev" id="prev-btn" type="button" aria-label="Previous image">‹</button>
+          <button class="nav next" id="next-btn" type="button" aria-label="Next image">›</button>
+        </div>
+
+        <div class="dots" id="dots" aria-label="Slide controls"></div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
